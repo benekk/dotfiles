@@ -1,0 +1,67 @@
+" Pathogen
+execute pathogen#infect()
+Helptags
+
+" Set the leader key
+let mapleader = ','
+
+" Use syntax highlighting and autoindent
+syntax on
+filetype plugin indent on
+set autoindent
+
+" Use relative line numbering
+set relativenumber
+
+" Default to the system clipboard
+set clipboard=unnamed
+
+" Use this font and size in MacVim
+set guifont=Source_Code_Pro_for_Powerline:h16
+
+" Use solarized
+syntax enable
+set background=dark
+colorscheme solarized
+
+" Use hidden buffers without warnings
+set hidden
+
+" Powerline
+set laststatus=2
+let g:airline_theme='solarized'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#whitespace#checks = [ 'indent' ]
+
+" Save with Ctrl+S in normal, visual, insert modes
+nnoremap <silent> <C-s> :update<cr>
+vnoremap <silent> <C-s> <C-c>:update<cr>
+inoremap <silent> <C-s> <C-o>:update<cr>
+
+" Toggle NERDTree with F1
+nnoremap <F1> :NERDTreeToggle<cr>
+
+" Resize splits with Ctrl+arrow keys
+nnoremap <C-left> :vertical resize -10<cr>
+nnoremap <C-down> :resize +10<cr>
+nnoremap <C-up> :resize -10<cr>
+nnoremap <C-right> :vertical resize +10<cr>
+
+" Ensure Makefiles use hard tabs
+autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
+
+" For everything else, use a tab width of 4 space chars.
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+" Toggle paste mode with F3
+nnoremap <F3> :set invpaste paste?<cr>
+set pastetoggle=<F3>
+
+" Go to shell with F12
+nnoremap <F12> :shell<cr>
+
+" Use the .md extension for markdown instead of modula2
+autocmd BufNewFile,BufRead *.md set ft=markdown
